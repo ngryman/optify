@@ -1,0 +1,30 @@
+{
+	"name": "optify",
+	"version": "0.0.1",
+	"description": "Generates a combination matrix from a set of options key/value pairs.",
+	"main": "index.js",
+	"scripts": {
+		"test": "grunt test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ngryman/matrixify.git"
+	},
+	"keywords": [
+		"tdd",
+		"bdd",
+		"test",
+		"parameters",
+		"arguments",
+		"matrix"
+	],
+	"author": "Nicolas Gryman <ngryman@gmail.com>",
+	"license": "MIT",
+	"devDependencies": {
+		"grunt": "~0.4.1",
+		"load-grunt-tasks": "~0.1.0",
+		"grunt-contrib-jshint": "~0.6.2",
+		"grunt-mocha-cli": "~1.1.0",
+		"chai": "~1.7.2"
+	}
+}
