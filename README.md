@@ -2,16 +2,20 @@
 
 Generates a combination matrix from a set of options key/value pairs.
 
-This can be pretty useful for testing all the possible combination of an `option` parameter. There are probably other
-usage. Tell me :)
+## Motivations
 
-## `optify(options)`
+This can be pretty useful for testing all the possible combination of an `option` parameter.<br>
+There are probably other usages. Tell me :)
+
+## API
+
+### `optify(options)`
 
 ```javascript
 var matrix = optify({
 	firstName: 'Nicolas',
 	lastName: 'Gryman',
-	birthDate: '1984-01-17
+	birthDate: '1984-01-17'
 });
 
 // produces a the following matrix:
@@ -27,13 +31,13 @@ matrix = [
 ];
 ```
 
-## `optify(options, undefValue)`
+### `optify(options, undefValue)`
 
 ```javascript
 var matrix = optify({
 	firstName: 'Nicolas',
 	lastName: 'Gryman',
-	birthDate: '1984-01-17
+	birthDate: '1984-01-17'
 }, 'wombat');
 
 // produces a the following matrix:
@@ -49,13 +53,13 @@ matrix = [
 ];
 ```
 
-## `optify(options, callback)`
+### `optify(options, callback)`
 
 ```javascript
 optify({
 	firstName: 'Nicolas',
 	lastName: 'Gryman',
-	birthDate: '1984-01-17
+	birthDate: '1984-01-17'
 }, function(opt, i) {
 	console.log('[' + i + '] ' + opt);
 });
@@ -71,13 +75,13 @@ optify({
 // [7] { 'firstName': undefined, 'lastName': undefined, 'birthDate': undefined }
 ```
 
-## `optify(options, callback, undefValue)`
+### `optify(options, callback, undefValue)`
 
 ```javascript
 optify({
 	firstName: 'Nicolas',
 	lastName: 'Gryman',
-	birthDate: '1984-01-17
+	birthDate: '1984-01-17'
 }, function(opt, i) {
 	console.log('[' + i + '] ' + opt);
 });
