@@ -75,14 +75,14 @@ optify({
 // [7] { 'firstName': undefined, 'lastName': undefined, 'birthDate': undefined }
 ```
 
-### `optify(options, callback, undefValue)`
+### `optify(options, undefValue, callback)`
 
 ```javascript
 optify({
 	firstName: 'Nicolas',
 	lastName: 'Gryman',
 	birthDate: '1984-01-17'
-}, function(opt, i) {
+}, 'wombat', function(opt, i) {
 	console.log('[' + i + '] ' + opt);
 });
 
