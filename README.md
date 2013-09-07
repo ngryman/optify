@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/ngryman/optify.png)](https://travis-ci.org/ngryman/optify)
 [![Dependency Status](https://gemnasium.com/ngryman/optify.png)](https://gemnasium.com/ngryman/optify)
 
-Generates a combination matrix from a set of options key/value pairs.
+Generates a combination matrix from a set key/value pairs.
 
 ## Motivations
 
