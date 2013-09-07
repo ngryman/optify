@@ -1,6 +1,6 @@
 {
 	"name": "optify",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Generates a combination matrix from a set of options key/value pairs.",
 	"main": "index.js",
 	"scripts": {
@@ -8,7 +8,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ngryman/matrixify.git"
+		"url": "https://github.com/ngryman/optify.git"
 	},
 	"keywords": [
 		"tdd",
