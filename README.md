@@ -1,5 +1,8 @@
 # optify <sup>0.0.1</sup>
 
+[![Build Status](https://travis-ci.org/ngryman/optify.png)](https://travis-ci.org/ngryman/optify)
+[![Dependency Status](https://gemnasium.com/ngryman/optify.png)](https://gemnasium.com/ngryman/optify)
+
 Generates a combination matrix from a set of options key/value pairs.
 
 ## Motivations
