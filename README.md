@@ -7,7 +7,7 @@ Generates a combination matrix from a set of options key/value pairs.
 
 ## Motivations
 
-This can be pretty useful for testing all the possible combination of an `option` parameter.<br>
+This can be pretty useful for testing all the possible combination of an `options` parameter.<br>
 There are probably other usages. Tell me :)
 
 ## Installation
@@ -31,14 +31,14 @@ var matrix = optify({
 
 // produces a the following matrix:
 matrix = [
-	{ firstName: 1,         lastName: 1,         birthDate: 1         },
-	{ firstName: undefined, lastName: 1,         birthDate: 1         },
-	{ firstName: 1,         lastName: undefined, birthDate: 1         },
-	{ firstName: undefined, lastName: undefined, birthDate: 1         },
-	{ firstName: 1,         lastName: 1,         birthDate: undefined },
-	{ firstName: undefined, lastName: 1,         birthDate: undefined },
-	{ firstName: 1,         lastName: undefined, birthDate: undefined },
-	{ firstName: undefined, lastName: undefined, birthDate: undefined }
+	{ firstName: 'Nicolas', lastName: 'Gryman',  birthDate: '1984-01-17' },
+	{ firstName: undefined, lastName: 'Gryman',  birthDate: '1984-01-17' },
+	{ firstName: 'Nicolas', lastName: undefined, birthDate: '1984-01-17' },
+	{ firstName: undefined, lastName: undefined, birthDate: '1984-01-17' },
+	{ firstName: 'Nicolas', lastName: 'Gryman',  birthDate: undefined    },
+	{ firstName: undefined, lastName: 'Gryman',  birthDate: undefined    },
+	{ firstName: 'Nicolas', lastName: undefined, birthDate: undefined    },
+	{ firstName: undefined, lastName: undefined, birthDate: undefined    }
 ];
 ```
 
@@ -53,14 +53,14 @@ var matrix = optify({
 
 // produces a the following matrix:
 matrix = [
-	{ firstName: 1,        lastName: 1,        birthDate: 1        },
-	{ firstName: 'wombat', lastName: 1,        birthDate: 1        },
-	{ firstName: 1,        lastName: 'wombat', birthDate: 1        },
-	{ firstName: 'wombat', lastName: 'wombat', birthDate: 1        },
-	{ firstName: 1,        lastName: 1,        birthDate: 'wombat' },
-	{ firstName: 'wombat', lastName: 1,        birthDate: 'wombat' },
-	{ firstName: 1,        lastName: 'wombat', birthDate: 'wombat' },
-	{ firstName: 'wombat', lastName: 'wombat', birthDate: 'wombat' }
+	{ firstName: 'Nicolas', lastName: 'Gryman',  birthDate: '1984-01-17' },
+	{ firstName: 'wombat',  lastName: 'Gryman',  birthDate: '1984-01-17' },
+	{ firstName: 'Nicolas', lastName: 'wombat',  birthDate: '1984-01-17' },
+	{ firstName: 'wombat',  lastName: 'wombat',  birthDate: '1984-01-17' },
+	{ firstName: 'Nicolas', lastName: 'Gryman',  birthDate: 'wombat'     },
+	{ firstName: 'wombat',  lastName: 'Gryman',  birthDate: 'wombat'     },
+	{ firstName: 'Nicolas', lastName: 'wombat',  birthDate: 'wombat'     },
+	{ firstName: 'wombat',  lastName: 'wombat',  birthDate: 'wombat'     }
 ];
 ```
 
