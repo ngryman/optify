@@ -1,6 +1,6 @@
 {
 	"name": "optify",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Generates a combination matrix from a set of options key/value pairs.",
 	"main": "index.js",
 	"scripts": {

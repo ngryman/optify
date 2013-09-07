@@ -1,4 +1,4 @@
-# optify <sup>0.0.1</sup>
+# optify <sup>0.0.2</sup>
 
 [![Build Status](https://travis-ci.org/ngryman/optify.png)](https://travis-ci.org/ngryman/optify)
 [![Dependency Status](https://gemnasium.com/ngryman/optify.png)](https://gemnasium.com/ngryman/optify)
