@@ -1,0 +1,16 @@
+{
+	"name": "optify",
+	"version": "0.1.0",
+	"main": "lib/optify.js",
+	"ignore": [
+		".gitignore",
+		".jshintrc",
+		".travis.yml",
+		"Gruntfile.js",
+		"LICENSE-MIT",
+		"package.json",
+		"*.md",
+		"test",
+		"index.js"
+	]
+}
