@@ -10,6 +10,14 @@ Generates a combination matrix from a set of options key/value pairs.
 This can be pretty useful for testing all the possible combination of an `option` parameter.<br>
 There are probably other usages. Tell me :)
 
+## Installation
+
+```bash
+npm install optify
+```
+
+You can also install it via Jam or Bower.
+
 ## API
 
 ### `optify(options)`
