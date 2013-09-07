@@ -89,16 +89,25 @@ describe('optify', function() {
 		matrix[i++].should.eql({ 1: 42, 2: 1337, 3: true });
 	});
 
-	it('should accept a set of undefined values', function() {
-		var matrix = optify({ 1: 1, 2: 1, 3: 1 }, { 1: 42, 2: 1337, 3: true }), i = 0;
-		matrix.should.have.lengthOf(8);
-		matrix[i++].should.eql({ 1: 1,  2: 1,    3: 1    });
-		matrix[i++].should.eql({ 1: 42, 2: 1,    3: 1    });
-		matrix[i++].should.eql({ 1: 1,  2: 1337, 3: 1    });
-		matrix[i++].should.eql({ 1: 42, 2: 1337, 3: 1    });
-		matrix[i++].should.eql({ 1: 1,  2: 1,    3: true });
-		matrix[i++].should.eql({ 1: 42, 2: 1,    3: true });
-		matrix[i++].should.eql({ 1: 1,  2: 1337, 3: true });
-		matrix[i++].should.eql({ 1: 42, 2: 1337, 3: true });
+	it('should parallelize async functions', function(done) {
+		var called = 0;
+		optify({ 1: 1, 2: 1, 3: 1 }, function(opts, i, done) {
+			called++;
+			setImmediate(done);
+		}, function() {
+			called.should.equal(8);
+			done();
+		});
+	});
+
+	it('should parallelize async function with a set of undefined values', function(done) {
+		var called = 0;
+		optify({ 1: 1, 2: 1, 3: 1 }, { 1: 42, 2: 1337, 3: true }, function(opts, i, done) {
+			called++;
+			setImmediate(done);
+		}, function() {
+			called.should.equal(8);
+			done();
+		});
 	});
 });

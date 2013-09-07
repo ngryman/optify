@@ -22,6 +22,8 @@ You can also install it via Jam or Bower.
 
 ### `optify(options)`
 
+Returns a `matrix` of all combinations.
+
 ```javascript
 var matrix = optify({
 	firstName: 'Nicolas',
@@ -43,6 +45,8 @@ matrix = [
 ```
 
 ### `optify(options, undefValue)`
+
+Substitute `undefined` by the given value.
 
 With a constant `undefValue`:
 
@@ -92,7 +96,9 @@ matrix = [
 ];
 ```
 
-### `optify(options, callback)`
+### `optify(options, fn)`
+
+Maps `matrix` with the given `fn` function. `fn` is invoked for each combination.
 
 ```javascript
 optify({
@@ -114,7 +120,9 @@ optify({
 // [7] { 'firstName': undefined, 'lastName': undefined, 'birthDate': undefined }
 ```
 
-### `optify(options, undefValue, callback)`
+### `optify(options, undefValue, fn)`
+
+Maps `matrix` with the given `fn` function, accepting a `undefined` substitution.
 
 ```javascript
 optify({
@@ -134,4 +142,65 @@ optify({
 // [5] { 'firstName': 'wombat', 'lastName': 'Gryman', 'birthDate': 'wombat' }
 // [6] { 'firstName': 'Nicolas', 'lastName': 'wombat', 'birthDate': 'wombat' }
 // [7] { 'firstName': 'wombat', 'lastName': 'wombat', 'birthDate': 'wombat' }
+```
+
+### `optify(options, fn, done)`
+
+Supports asynchronous `fn`. Parallelize each invocation and invokes `done` when finished.
+`done` receives the `matrix`.
+
+```javascript
+optify({
+	firstName: 'Nicolas',
+	lastName: 'Gryman',
+	birthDate: '1984-01-17'
+}, function(opt, i, done) {
+	someAsyncJob(function() {
+		console.log('[' + i + '] ' + opt);
+		done();
+	});
+}, function() {
+	console.log('done!');
+});
+
+// outputs (order not guaranteed):
+// [0] { 'firstName': 'Nicolas', 'lastName': 'Gryman', 'birthDate': '1984-01-17' }
+// [1] { 'firstName': undefined, 'lastName': 'Gryman', 'birthDate': '1984-01-17' }
+// [2] { 'firstName': 'Nicolas', 'lastName': undefined, 'birthDate': '1984-01-17' }
+// [3] { 'firstName': undefined, 'lastName': undefined, 'birthDate': '1984-01-17' }
+// [4] { 'firstName': 'Nicolas', 'lastName': 'Gryman', 'birthDate': undefined }
+// [5] { 'firstName': undefined, 'lastName': 'Gryman', 'birthDate': undefined }
+// [6] { 'firstName': 'Nicolas', 'lastName': undefined, 'birthDate': undefined }
+// [7] { 'firstName': undefined, 'lastName': undefined, 'birthDate': undefined }
+// done!
+```
+
+### `optify(options, undefValue, fn, done)`
+
+Supports asynchronous `fn`, accepting a `undefined` substitution.
+
+```javascript
+optify({
+	firstName: 'Nicolas',
+	lastName: 'Gryman',
+	birthDate: '1984-01-17'
+}, 'wombat', function(opt, i, done) {
+	someAsyncJob(function() {
+		console.log('[' + i + '] ' + opt);
+		done();
+	});
+}, function() {
+	console.log('done!');
+});
+
+// outputs (order not guaranteed):
+// [0] { 'firstName': 'Nicolas', 'lastName': 'Gryman', 'birthDate': '1984-01-17' }
+// [1] { 'firstName': 'wombat', 'lastName': 'Gryman', 'birthDate': '1984-01-17' }
+// [2] { 'firstName': 'Nicolas', 'lastName': 'wombat', 'birthDate': '1984-01-17' }
+// [3] { 'firstName': 'wombat', 'lastName': 'wombat', 'birthDate': '1984-01-17' }
+// [4] { 'firstName': 'Nicolas', 'lastName': 'Gryman', 'birthDate': 'wombat' }
+// [5] { 'firstName': 'wombat', 'lastName': 'Gryman', 'birthDate': 'wombat' }
+// [6] { 'firstName': 'Nicolas', 'lastName': 'wombat', 'birthDate': 'wombat' }
+// [7] { 'firstName': 'wombat', 'lastName': 'wombat', 'birthDate': 'wombat' }
+// done!
 ```
