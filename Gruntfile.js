@@ -36,10 +36,14 @@ module.exports = function(grunt) {
 			misc: ['Gruntfile.js']
 		},
 		mochacli: {
-			unit: {
+			options: {
+				reporter: 'spec',
+				bail: true
+			},
+			unit: ['<%= config.test %>'],
+			debug: {
 				options: {
-					reporter: 'spec',
-					bail: true
+					'debug-brk': true
 				},
 				src: ['<%= config.test %>']
 			}
@@ -47,5 +51,6 @@ module.exports = function(grunt) {
 	});
 
 	// front tasks
-	grunt.registerTask('test', ['jshint', 'mochacli']);
+	grunt.registerTask('test', ['jshint', 'mochacli:unit']);
+	grunt.registerTask('debug', ['mochacli:debug']);
 };
