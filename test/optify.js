@@ -50,7 +50,6 @@ describe('optify', function() {
 			{ 1: undefined, 2: undefined, 3: undefined }
 		], called = 0;
 		optify({ 1: 1, 2: 1, 3: 1 }, function(opts, i) {
-			console.log('[' + i + ']', opts);
 			called++;
 			opts.should.be.an('object');
 			opts.should.eql(matrix[i]);
@@ -58,7 +57,7 @@ describe('optify', function() {
 		called.should.equal(8);
 	});
 
-	it('should map the result to a given function with a given unefined value', function() {
+	it('should map the result to a given function with a given undefined value', function() {
 		var matrix = [
 			{ 1: 1, 2: 1, 3: 1 },
 			{ 1: 0, 2: 1, 3: 1 },
@@ -75,5 +74,31 @@ describe('optify', function() {
 			opts.should.eql(matrix[i]);
 		});
 		called.should.equal(8);
+	});
+
+	it('should accept a set of undefined values', function() {
+		var matrix = optify({ 1: 1, 2: 1, 3: 1 }, { 1: 42, 2: 1337, 3: true }), i = 0;
+		matrix.should.have.lengthOf(8);
+		matrix[i++].should.eql({ 1: 1,  2: 1,    3: 1    });
+		matrix[i++].should.eql({ 1: 42, 2: 1,    3: 1    });
+		matrix[i++].should.eql({ 1: 1,  2: 1337, 3: 1    });
+		matrix[i++].should.eql({ 1: 42, 2: 1337, 3: 1    });
+		matrix[i++].should.eql({ 1: 1,  2: 1,    3: true });
+		matrix[i++].should.eql({ 1: 42, 2: 1,    3: true });
+		matrix[i++].should.eql({ 1: 1,  2: 1337, 3: true });
+		matrix[i++].should.eql({ 1: 42, 2: 1337, 3: true });
+	});
+
+	it('should accept a set of undefined values', function() {
+		var matrix = optify({ 1: 1, 2: 1, 3: 1 }, { 1: 42, 2: 1337, 3: true }), i = 0;
+		matrix.should.have.lengthOf(8);
+		matrix[i++].should.eql({ 1: 1,  2: 1,    3: 1    });
+		matrix[i++].should.eql({ 1: 42, 2: 1,    3: 1    });
+		matrix[i++].should.eql({ 1: 1,  2: 1337, 3: 1    });
+		matrix[i++].should.eql({ 1: 42, 2: 1337, 3: 1    });
+		matrix[i++].should.eql({ 1: 1,  2: 1,    3: true });
+		matrix[i++].should.eql({ 1: 42, 2: 1,    3: true });
+		matrix[i++].should.eql({ 1: 1,  2: 1337, 3: true });
+		matrix[i++].should.eql({ 1: 42, 2: 1337, 3: true });
 	});
 });

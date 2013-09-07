@@ -44,6 +44,8 @@ matrix = [
 
 ### `optify(options, undefValue)`
 
+With a constant `undefValue`:
+
 ```javascript
 var matrix = optify({
 	firstName: 'Nicolas',
@@ -61,6 +63,32 @@ matrix = [
 	{ firstName: 'wombat',  lastName: 'Gryman',  birthDate: 'wombat'     },
 	{ firstName: 'Nicolas', lastName: 'wombat',  birthDate: 'wombat'     },
 	{ firstName: 'wombat',  lastName: 'wombat',  birthDate: 'wombat'     }
+];
+```
+
+With a set of values:
+
+```javascript
+var matrix = optify({
+	firstName: 'Nicolas',
+	lastName: 'Gryman',
+	birthDate: '1984-01-17'
+}, {
+	firstName: 'John',
+	lastName: 'Doe',
+	birthDate: '1337-42-01'
+});
+
+// produces a the following matrix:
+matrix = [
+	{ firstName: 'Nicolas', lastName: 'Gryman',  birthDate: '1984-01-17' },
+	{ firstName: 'John',    lastName: 'Gryman',  birthDate: '1984-01-17' },
+	{ firstName: 'Nicolas', lastName: 'Doe',     birthDate: '1984-01-17' },
+	{ firstName: 'John',    lastName: 'Doe',     birthDate: '1984-01-17' },
+	{ firstName: 'Nicolas', lastName: 'Gryman',  birthDate: '1337-42-01' },
+	{ firstName: 'John',    lastName: 'Gryman',  birthDate: '1337-42-01' },
+	{ firstName: 'Nicolas', lastName: 'Doe',     birthDate: '1337-42-01' },
+	{ firstName: 'John',    lastName: 'Doe',     birthDate: '1337-42-01' }
 ];
 ```
 
