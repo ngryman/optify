@@ -1,5 +1,7 @@
 # optify <sup>0.0.4</sup>
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ngryman/optify.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/ngryman/optify.png)](https://travis-ci.org/ngryman/optify)
 [![Dependency Status](https://gemnasium.com/ngryman/optify.png)](https://gemnasium.com/ngryman/optify)
 
