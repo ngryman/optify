@@ -25,6 +25,6 @@
 		"load-grunt-tasks": "~3.5.2",
 		"grunt-contrib-jshint": "~1.1.0",
 		"grunt-mocha-cli": "~3.0.0",
-		"chai": "~3.5.0"
+		"chai": "~4.0.2"
 	}
 }
